@@ -1,0 +1,6 @@
+fastapi==0.115.12
+uvicorn[standard]==0.33.0
+torch==2.4.1
+transformers==4.46.3
+pydantic==2.10.6
+huggingface-hub==0.31.2
