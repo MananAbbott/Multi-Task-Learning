@@ -1,3 +1,15 @@
+## Task Associated files
+
+  All explanation related to the assesment are present in **Fetch_assesment.pdf** file.
+
+  Files associated to Task 1 are **src/embedding_model.py** and **task1.ipynb**.
+
+  Files associated to Task 2 are **src/mtl.py** and **task2_3_4.ipynb**.
+
+  Files associated to Task 3 are **src/mtl.py** and **task2_3_4.ipynb**.
+
+  Files associated to Task 4 are **src/mtl.py** and **task2_3_4.ipynb**.
+
 ## Codebase Overview
 
 Below is a mapping of every file and directory in this repo to its purpose:
