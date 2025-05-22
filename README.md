@@ -1,6 +1,20 @@
+## Project Overview
+
+This repository contains my end-to-end solution for the **Fetch Rewards – ML Engineer Apprentice** take-home.
+The objective is to transform raw sentences into vector representations **and** predict their **topic** (4 classes) and **sentiment** (3 classes) in a single, lightweight pipeline.
+
+| Task                        | Deliverable                                                                                                  | Location                                 |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------ | ---------------------------------------- |
+| **1 – Sentence embeddings** | `EmbeddingModel` — MiniLM backbone with CLS pooling, optional projection, and L2-norm                        | `src/embedding_model.py` · `task1.ipynb` |
+| **2 – Multi-task head**     | Shared encoder + twin classification heads (topic & sentiment)                                               | `src/mtl.py`                             |
+| **3 – Training strategies** | Notebook containing **three-phase** (freeze → unfreeze) fine-tuning strategy; includes an alternative training strategy too | `task2_3_4.ipynb`                        |
+| **4 – Production API**      | FastAPI service exposing `/predict` routes                                                      | `serve.py`                               |
+| **Bonus**                   | Fully containerised workflow that builds the image and fires sample requests                                 | `Dockerfile` · `build_and_run.sh`        |
+
+
 ## Task Associated files
 
-  All explanation related to the assesment are present in **Fetch_assesment.pdf** file.
+  All explanation related to the assesment are present in [Fetch_assessment.pdf](./Fetch_assessment.pdf) file.
 
   Files associated to Task 1 are **src/embedding_model.py** and **task1.ipynb**.
 
@@ -94,7 +108,7 @@ Below is a mapping of every file and directory in this repo to its purpose:
 git clone https://github.com/your-org/fetch-assessment.git
 cd fetch-assessment
 ```
-### 2. (Optional) Docker setup
+### 2. (Quick Demo) Docker setup
 
 Build the Docker image and run the default demo/training pipeline:
 
@@ -123,4 +137,18 @@ Build the Docker image and run the default demo/training pipeline:
     ```
 4. **Run the .ipynb notebooks for interactive demos**  
 
-Note: All task related explanations are present in the Fetch_assesmet.pdf file
+Note: All task related explanations are present in the Fetch_assesment.pdf file
+
+
+## Results & Metrics
+
+| Metric     | A (Baseline) | A (Post-train) | B (Baseline) | B (Post-train) |
+|------------|--------------|----------------|--------------|----------------|
+| Accuracy   | 0.20         | 0.80           | 0.30         | 0.6333         |
+| Recall     | 0.00         | 1.00           | 0.00         | 0.60           |
+| Precision  | 0.00         | 1.00           | 0.00         | 0.8571         |
+
+*A* and *B* correspond to the two prediction heads (i.e., topic and sentiment).  
+ Full training logs and metric-calculation code present in `task2_3_4.ipynb`.
+
+
